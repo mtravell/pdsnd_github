@@ -199,3 +199,10 @@ ggplot(q3_all2, aes(x=day)) +
   facet_wrap(~city) +
   labs(x="Day of Week", y = "Count") +
   ggtitle("Barchart of Number of Trips per Week Day by City")
+
+# Determine most common day of the week by city - using even more different colours
+  ggplot(q3_all2, aes(x=day)) +
+    geom_bar(color="green", fill="green")  +
+    facet_wrap(~city) +
+    labs(x="Day of Week", y = "Count") +
+    ggtitle("Barchart of Number of Trips per Week Day by City")
