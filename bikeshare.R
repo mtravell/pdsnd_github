@@ -3,10 +3,10 @@ install.packages("tidyverse")
 library(ggplot2)
 library(dplyr)
 
-  
+
 # Production Question 1 - What is the trip duration distribution across the 3 cities?
 
-# Install requirement packages  
+# Install requirement packages
 library(dplyr)
 library(ggplot2)
 
@@ -46,31 +46,31 @@ by(q1_all$Trip.Duration/60, q1_all$city, summary)
 by(q1_all$Trip.Duration/3600, q1_all$city, summary)
 
 
-# Plot a histogram of trip duration in minutes by city up go 4 hours  
+# Plot a histogram of trip duration in minutes by city up go 4 hours
 qplot(x = Trip.Duration/60, data = subset(q1_all, !is.na(city)), binwidth = 1) +
   scale_x_continuous(limits=c(0,240), breaks = seq(0,240,50)) +
   facet_wrap(~city) +
   labs(title="Up to 4 Hours")
- 
-# Plot a histogram of trip duration in minutes by city up go 2 hours  
+
+# Plot a histogram of trip duration in minutes by city up go 2 hours
 qplot(x = Trip.Duration/60, data = subset(q1_all, !is.na(city)), binwidth = 1) +
   scale_x_continuous(limits=c(0,120), breaks = seq(0,120,20)) +
   facet_wrap(~city) +
   labs(title="Up to 2 Hours")
 
-# Plot a histogram of trip duration in minutes by city up go 1.5 hours  
+# Plot a histogram of trip duration in minutes by city up go 1.5 hours
 qplot(x = Trip.Duration/60, data = subset(q1_all, !is.na(city)), binwidth = 1) +
   scale_x_continuous(limits=c(0,90), breaks = seq(0,90,10)) +
   facet_wrap(~city) +
   labs(title="Up to 1.5 Hours")
 
-# Plot a histogram of trip duration in minutes by city up go 1 hours  
+# Plot a histogram of trip duration in minutes by city up go 1 hours
 qplot(x = Trip.Duration/60, data = subset(q1_all, !is.na(city)), binwidth = 1) +
   scale_x_continuous(limits=c(0,60), breaks = seq(0,60,10)) +
   facet_wrap(~city) +
   labs(title="Up to 1 Hour")
 
-# Plot a histogram of trip duration in minutes by city up go 0.5 hours  
+# Plot a histogram of trip duration in minutes by city up go 0.5 hours
 qplot(x = Trip.Duration/30, data = subset(q1_all, !is.na(city)), binwidth = 1) +
   scale_x_continuous(limits=c(0,30), breaks = seq(0,30,10)) +
   facet_wrap(~city) +
@@ -80,28 +80,28 @@ qplot(x = Trip.Duration/30, data = subset(q1_all, !is.na(city)), binwidth = 1) +
 ggplot(q1_all, aes(x=city,y=Trip.Duration/60)) +
   geom_boxplot() +
   ylim(0,90) +
-  xlab("City") + 
+  xlab("City") +
   ylab("Trip Duration")
 
 # Investigate data further with a boxplot of trip duration in minutes by city up to 1 hours
 ggplot(q1_all, aes(x=city,y=Trip.Duration/60)) +
   geom_boxplot() +
   ylim(0,60) +
-  xlab("City") + 
+  xlab("City") +
   ylab("Trip Duration")
 
 # Investigate data further with a boxplot of trip duration in minutes by city up to 40 minutes
 ggplot(q1_all, aes(x=city,y=Trip.Duration/60)) +
   geom_boxplot() +
   ylim(0,40) +
-  xlab("City") + 
+  xlab("City") +
   ylab("Trip Duration")
 
 # Investigate data further with a boxplot of trip duration in minutes by city up to 30 minutes
 ggplot(q1_all, aes(x=city,y=Trip.Duration/60)) +
   geom_boxplot() +
   ylim(0,30) +
-  xlab("City") + 
+  xlab("City") +
   ylab("Trip Duration")
 
 
@@ -112,7 +112,7 @@ ggplot(q1_all, aes(x=city,y=Trip.Duration/60)) +
   geom_boxplot(fill="skyblue", alpha=0.2) +
   stat_summary(fun.y=mean, geom="point",shape=20, size=5, color="red",fill="red") +
   ylim(0,30) +
-  xlab("City") + 
+  xlab("City") +
   ylab("Trip Duration (Minutes)") +
   ggtitle("Trip Duration in Minutes by City")
 
@@ -193,4 +193,9 @@ ggplot(q3_all2, aes(x=day)) +
 # However, when looking at the individual cities this is not the uniform case. Both New York and Washington following this trend.
 # But Chicago does noit. Chicago has a relatively flat,
 
-
+# Determine most common day of the week by city - using different colours
+ggplot(q3_all2, aes(x=day)) +
+  geom_bar(color="red", fill="red")  +
+  facet_wrap(~city) +
+  labs(x="Day of Week", y = "Count") +
+  ggtitle("Barchart of Number of Trips per Week Day by City")
