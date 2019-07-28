@@ -5,7 +5,7 @@ Include the date you created this project and README file.
 Replace the Project Title
 
 ### Description
-R code project investigating bike shake data
+R code project investigating bike shake data across 3 US cities
 
 ### Files used
 chicago.csv
