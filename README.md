@@ -1,15 +1,17 @@
-### Date created
+### 2019-07-28
 Include the date you created this project and README file.
 
-### Project Title
+### Bike Share Project
 Replace the Project Title
 
 ### Description
-Describe what your project is about and what it does
+R code project investigating bike shake data across 3 US cities
+Uses GGPLOT2 and DPLYR functions
 
 ### Files used
-Include the files used
+chicago.csv
+new-york-city.csv
+washington.csv
 
 ### Credits
-It's important to give proper credit. Add links to any repo that inspired you or blogposts you consulted.
-
+Udacity project
